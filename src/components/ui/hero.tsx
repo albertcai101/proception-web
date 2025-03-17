@@ -7,18 +7,16 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Typewriter } from "@/components/ui/typewriter"
 import Link from "next/link"
-import { useState, useRef, useEffect } from "react"
+import { useRef, useEffect } from "react"
 
 interface HeroProps extends React.HTMLAttributes<HTMLElement> {
   gradient?: boolean
-  blur?: boolean
   subtitle?: React.ReactNode
   actions?: {
     label: string
     href: string
     variant?: "default" | "outline" | "secondary" | "ghost" | "link"
   }[]
-  titleClassName?: string
   subtitleClassName?: string
   actionsClassName?: string
 }
@@ -28,10 +26,8 @@ const Hero = React.forwardRef<HTMLElement, HeroProps>(
     {
       className,
       gradient = true,
-      blur = true,
       subtitle,
       actions,
-      titleClassName,
       subtitleClassName,
       actionsClassName,
       ...props

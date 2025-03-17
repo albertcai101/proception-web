@@ -68,7 +68,7 @@ export default function Home() {
         <div className="container mx-auto max-w-3xl text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-zinc-200 to-zinc-400">Partner With Us</h2>
           <p className="text-zinc-400 text-lg mb-12 leading-relaxed">
-            Join us in shaping the future of humanoid robotics. We're looking for strategic partners who share our vision of advancing robotic capabilities through innovative approaches.
+            Join us in shaping the future of humanoid robotics. We&apos;re looking for strategic partners who share our vision of advancing robotic capabilities through innovative approaches.
           </p>
           <form className="space-y-6 max-w-md mx-auto">
             <input
@@ -101,7 +101,7 @@ export default function Home() {
         <div className="container mx-auto max-w-3xl text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-zinc-200 to-zinc-400">Join Our Team</h2>
           <p className="text-zinc-400 text-lg mb-12 leading-relaxed">
-            We're looking for exceptional talent to join us in revolutionizing humanoid robotics. If you're passionate about robotics, computer vision, and machine learning, we want to hear from you.
+            We&apos;re looking for exceptional talent to join us in revolutionizing humanoid robotics. If you&apos;re passionate about robotics, computer vision, and machine learning, we want to hear from you.
           </p>
           <form className="space-y-6 max-w-md mx-auto">
             <input
