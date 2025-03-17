@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Typewriter } from "@/components/ui/typewriter"
 import Link from "next/link"
+import { useState, useRef, useEffect } from "react"
 
 interface HeroProps extends React.HTMLAttributes<HTMLElement> {
   gradient?: boolean
@@ -37,9 +38,31 @@ const Hero = React.forwardRef<HTMLElement, HeroProps>(
     },
     ref,
   ) => {
+    const [isInView, setIsInView] = useState(false)
+    const refHero = useRef<HTMLDivElement>(null)
+
+    useEffect(() => {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          setIsInView(entry.isIntersecting)
+        },
+        { threshold: 0.5 }
+      )
+
+      if (refHero.current) {
+        observer.observe(refHero.current)
+      }
+
+      return () => {
+        if (refHero.current) {
+          observer.unobserve(refHero.current)
+        }
+      }
+    }, [])
+
     return (
       <section
-        ref={ref}
+        ref={refHero}
         className={cn(
           "relative z-0 flex min-h-screen w-full flex-col items-start justify-center overflow-hidden rounded-md bg-background",
           className,

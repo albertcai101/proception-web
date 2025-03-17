@@ -51,6 +51,7 @@ const Typewriter = ({
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isDeleting, setIsDeleting] = useState(false)
   const [currentTextIndex, setCurrentTextIndex] = useState(0)
+  const [isTyping, setIsTyping] = useState(false)
 
   const texts = Array.isArray(text) ? text : [text]
 
@@ -105,7 +106,16 @@ const Typewriter = ({
     texts,
     currentTextIndex,
     loop,
+    initialDelay,
   ])
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setIsTyping(true)
+    }, initialDelay)
+
+    return () => clearTimeout(timeout)
+  }, [initialDelay])
 
   return (
     <span className={cn("inline whitespace-nowrap tracking-tight", className)}>

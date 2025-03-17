@@ -144,6 +144,11 @@ export default function Home() {
           </div>
         </div>
       </footer>
+
+      <div className="text-center max-w-[600px] mx-auto">
+        <h2 className="text-3xl font-bold mb-4">Let&apos;s build the future together</h2>
+        <p className="text-zinc-400">We&apos;re always looking for talented individuals who share our vision.</p>
+      </div>
     </main>
   )
 }
