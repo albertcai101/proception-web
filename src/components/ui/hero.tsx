@@ -38,31 +38,33 @@ const Hero = React.forwardRef<HTMLElement, HeroProps>(
     },
     ref,
   ) => {
-    const [isInView, setIsInView] = useState(false)
     const refHero = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
       const observer = new IntersectionObserver(
         ([entry]) => {
-          setIsInView(entry.isIntersecting)
+          if (entry.isIntersecting) {
+            // Handle intersection if needed
+          }
         },
         { threshold: 0.5 }
       )
 
-      if (refHero.current) {
-        observer.observe(refHero.current)
+      const currentRef = refHero.current
+      if (currentRef) {
+        observer.observe(currentRef)
       }
 
       return () => {
-        if (refHero.current) {
-          observer.unobserve(refHero.current)
+        if (currentRef) {
+          observer.unobserve(currentRef)
         }
       }
     }, [])
 
     return (
       <section
-        ref={refHero}
+        ref={ref}
         className={cn(
           "relative z-0 flex min-h-screen w-full flex-col items-start justify-center overflow-hidden rounded-md bg-background",
           className,
